@@ -1,23 +1,23 @@
 {
   "files": {
-    "main.css": "/tekyung/kyonggi-university_network-system-laboratory_webpage/src/App.js/static/css/main.f8b213bc.css",
-    "main.js": "/tekyung/kyonggi-university_network-system-laboratory_webpage/src/App.js/static/js/main.e5d731bf.js",
-    "static/js/329.6a2cf115.chunk.js": "/tekyung/kyonggi-university_network-system-laboratory_webpage/src/App.js/static/js/329.6a2cf115.chunk.js",
-    "static/js/273.da3be24f.chunk.js": "/tekyung/kyonggi-university_network-system-laboratory_webpage/src/App.js/static/js/273.da3be24f.chunk.js",
-    "static/js/627.daeb68c4.chunk.js": "/tekyung/kyonggi-university_network-system-laboratory_webpage/src/App.js/static/js/627.daeb68c4.chunk.js",
-    "static/js/233.7d988e10.chunk.js": "/tekyung/kyonggi-university_network-system-laboratory_webpage/src/App.js/static/js/233.7d988e10.chunk.js",
-    "static/js/649.314de99e.chunk.js": "/tekyung/kyonggi-university_network-system-laboratory_webpage/src/App.js/static/js/649.314de99e.chunk.js",
-    "static/js/683.f81b3c38.chunk.js": "/tekyung/kyonggi-university_network-system-laboratory_webpage/src/App.js/static/js/683.f81b3c38.chunk.js",
-    "static/js/876.6a263fcb.chunk.js": "/tekyung/kyonggi-university_network-system-laboratory_webpage/src/App.js/static/js/876.6a263fcb.chunk.js",
-    "static/js/488.e3f39d5d.chunk.js": "/tekyung/kyonggi-university_network-system-laboratory_webpage/src/App.js/static/js/488.e3f39d5d.chunk.js",
-    "static/js/206.59bc9a1f.chunk.js": "/tekyung/kyonggi-university_network-system-laboratory_webpage/src/App.js/static/js/206.59bc9a1f.chunk.js",
-    "static/js/989.2beccebc.chunk.js": "/tekyung/kyonggi-university_network-system-laboratory_webpage/src/App.js/static/js/989.2beccebc.chunk.js",
-    "static/js/451.05182872.chunk.js": "/tekyung/kyonggi-university_network-system-laboratory_webpage/src/App.js/static/js/451.05182872.chunk.js",
-    "static/js/61.50b25231.chunk.js": "/tekyung/kyonggi-university_network-system-laboratory_webpage/src/App.js/static/js/61.50b25231.chunk.js",
-    "index.html": "/tekyung/kyonggi-university_network-system-laboratory_webpage/src/App.js/index.html"
+    "main.css": "/tekyung/kyonggi-university_network-system-laboratory_webpage.git/static/css/main.f8b213bc.css",
+    "main.js": "/tekyung/kyonggi-university_network-system-laboratory_webpage.git/static/js/main.9b8ba989.js",
+    "static/js/329.6a2cf115.chunk.js": "/tekyung/kyonggi-university_network-system-laboratory_webpage.git/static/js/329.6a2cf115.chunk.js",
+    "static/js/273.da3be24f.chunk.js": "/tekyung/kyonggi-university_network-system-laboratory_webpage.git/static/js/273.da3be24f.chunk.js",
+    "static/js/627.daeb68c4.chunk.js": "/tekyung/kyonggi-university_network-system-laboratory_webpage.git/static/js/627.daeb68c4.chunk.js",
+    "static/js/233.7d988e10.chunk.js": "/tekyung/kyonggi-university_network-system-laboratory_webpage.git/static/js/233.7d988e10.chunk.js",
+    "static/js/649.314de99e.chunk.js": "/tekyung/kyonggi-university_network-system-laboratory_webpage.git/static/js/649.314de99e.chunk.js",
+    "static/js/683.f81b3c38.chunk.js": "/tekyung/kyonggi-university_network-system-laboratory_webpage.git/static/js/683.f81b3c38.chunk.js",
+    "static/js/876.6a263fcb.chunk.js": "/tekyung/kyonggi-university_network-system-laboratory_webpage.git/static/js/876.6a263fcb.chunk.js",
+    "static/js/488.e3f39d5d.chunk.js": "/tekyung/kyonggi-university_network-system-laboratory_webpage.git/static/js/488.e3f39d5d.chunk.js",
+    "static/js/206.59bc9a1f.chunk.js": "/tekyung/kyonggi-university_network-system-laboratory_webpage.git/static/js/206.59bc9a1f.chunk.js",
+    "static/js/989.2beccebc.chunk.js": "/tekyung/kyonggi-university_network-system-laboratory_webpage.git/static/js/989.2beccebc.chunk.js",
+    "static/js/451.05182872.chunk.js": "/tekyung/kyonggi-university_network-system-laboratory_webpage.git/static/js/451.05182872.chunk.js",
+    "static/js/61.50b25231.chunk.js": "/tekyung/kyonggi-university_network-system-laboratory_webpage.git/static/js/61.50b25231.chunk.js",
+    "index.html": "/tekyung/kyonggi-university_network-system-laboratory_webpage.git/index.html"
   },
   "entrypoints": [
     "static/css/main.f8b213bc.css",
-    "static/js/main.e5d731bf.js"
+    "static/js/main.9b8ba989.js"
   ]
 }
