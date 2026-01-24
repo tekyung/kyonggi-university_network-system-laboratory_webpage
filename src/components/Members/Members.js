@@ -1,6 +1,7 @@
 import React from 'react';
 import { SectionTitle } from '../../utils/constants';
 import students from '../../data/StudentsData'; // 대학원생 데이터
+import professorData from '../../data/ProfessorData'; // 교수님 데이터
 
 const MemberCard = ({ name, image, interests, type }) => (
   <div className="bg-gray-50 rounded-lg shadow-md p-6 text-center hover:shadow-xl transition-shadow duration-300">
@@ -16,7 +17,7 @@ const MemberCard = ({ name, image, interests, type }) => (
   </div>
 );
 
-const Members = ({ professorData }) => {
+const Members = () => {
   const info = professorData; // 교수님 데이터
 
   return (

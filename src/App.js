@@ -6,7 +6,6 @@ import {
   Link,
   useLocation,
 } from "react-router-dom";
-import professorData from "./data/ProfessorData";
 import { labInfo } from "./utils/constants";
 import "./App.css";
 
@@ -219,7 +218,7 @@ export default function App() {
                   fallback={<div className="py-20 text-center">로딩 중...</div>}
                 >
                   <About />
-                  <Members professorData={professorData} />
+                  <Members />
 
                   {/* 구성원 항목 아래 졸업생/앨범 버튼 섹션 */}
                   <section className="py-24 bg-blue-50 border-y border-blue-100">
