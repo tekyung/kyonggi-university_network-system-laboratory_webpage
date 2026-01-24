@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/kyonggi-university_network-system-laboratory_webpage/static/css/main.f8b213bc.css",
-    "main.js": "/kyonggi-university_network-system-laboratory_webpage/static/js/main.0c6f3608.js",
+    "main.js": "/kyonggi-university_network-system-laboratory_webpage/static/js/main.4052cf5d.js",
     "static/js/329.6a2cf115.chunk.js": "/kyonggi-university_network-system-laboratory_webpage/static/js/329.6a2cf115.chunk.js",
     "static/js/273.da3be24f.chunk.js": "/kyonggi-university_network-system-laboratory_webpage/static/js/273.da3be24f.chunk.js",
     "static/js/627.daeb68c4.chunk.js": "/kyonggi-university_network-system-laboratory_webpage/static/js/627.daeb68c4.chunk.js",
     "static/js/233.7d988e10.chunk.js": "/kyonggi-university_network-system-laboratory_webpage/static/js/233.7d988e10.chunk.js",
     "static/js/649.314de99e.chunk.js": "/kyonggi-university_network-system-laboratory_webpage/static/js/649.314de99e.chunk.js",
     "static/js/683.f81b3c38.chunk.js": "/kyonggi-university_network-system-laboratory_webpage/static/js/683.f81b3c38.chunk.js",
-    "static/js/876.d271eef3.chunk.js": "/kyonggi-university_network-system-laboratory_webpage/static/js/876.d271eef3.chunk.js",
+    "static/js/876.77e86ffa.chunk.js": "/kyonggi-university_network-system-laboratory_webpage/static/js/876.77e86ffa.chunk.js",
     "static/js/488.e3f39d5d.chunk.js": "/kyonggi-university_network-system-laboratory_webpage/static/js/488.e3f39d5d.chunk.js",
     "static/js/206.59bc9a1f.chunk.js": "/kyonggi-university_network-system-laboratory_webpage/static/js/206.59bc9a1f.chunk.js",
     "static/js/989.2beccebc.chunk.js": "/kyonggi-university_network-system-laboratory_webpage/static/js/989.2beccebc.chunk.js",
@@ -18,6 +18,6 @@
   },
   "entrypoints": [
     "static/css/main.f8b213bc.css",
-    "static/js/main.0c6f3608.js"
+    "static/js/main.4052cf5d.js"
   ]
 }
