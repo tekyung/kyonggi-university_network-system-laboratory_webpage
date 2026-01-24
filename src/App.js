@@ -1,6 +1,5 @@
 import React, { useState, useEffect, Suspense, lazy } from "react";
 import {
-  BrowserRouter as Router,
   Routes,
   Route,
   Link,
@@ -62,8 +61,8 @@ const Header = ({ sections, activeSection, scrollToSection }) => {
         {/* 좌측 로고 영역 */}
         <div className="flex items-center gap-4">
           <Link
-            to="/" 
-            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} 
+            to="/"
+            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
             className="flex items-center hover:opacity-80 transition-opacity"
           >
             <img src={logoImage} alt="로고" className="h-10" />
@@ -94,9 +93,8 @@ const Header = ({ sections, activeSection, scrollToSection }) => {
                 <Link
                   to={section.subMenus || !section.isExternal ? (isMainPage ? `#${section.id}` : `/#${section.id}`) : `/${section.id}`}
                   onClick={(e) => !section.isExternal && isMainPage && scrollToSection(e, section.id)}
-                  className={`flex items-center text-gray-600 hover:text-blue-600 transition-colors px-2 h-10 ${
-                    activeSection === section.id && isMainPage ? "font-bold border-b-2 border-blue-600" : ""
-                  }`}
+                  className={`flex items-center text-gray-600 hover:text-blue-600 transition-colors px-2 h-10 ${activeSection === section.id && isMainPage ? "font-bold border-b-2 border-blue-600" : ""
+                    }`}
                 >
                   {section.title}
                   {section.subMenus && (
@@ -134,7 +132,7 @@ const Header = ({ sections, activeSection, scrollToSection }) => {
                 <div className="h-3 w-px bg-gray-300 mx-4"></div>
               )}
             </li>
-        ))}
+          ))}
         </ul>
       </nav>
     </header>
@@ -153,23 +151,23 @@ const Footer = () => (
 
 export default function App() {
   const sections = [
-  { id: "about", title: "연구실 소개" },
-  { 
-    id: "members", 
-    title: "구성원", 
-    subMenus: [
-      { id: "graduates", title: "졸업생", isExternal: true },
-    ] 
-  },
-  { 
-    id: "publications", 
-    title: "연구 실적", 
-    subMenus: [
-      { id: "publications", title: "연구 전체 목록", isExternal: true },
-    ] 
-  },
-  { id: "album", title: "앨범", isExternal: true },
-  { id: "contact", title: "오시는 길" },
+    { id: "about", title: "연구실 소개" },
+    {
+      id: "members",
+      title: "구성원",
+      subMenus: [
+        { id: "graduates", title: "졸업생", isExternal: true },
+      ]
+    },
+    {
+      id: "publications",
+      title: "연구 실적",
+      subMenus: [
+        { id: "publications", title: "연구 전체 목록", isExternal: true },
+      ]
+    },
+    { id: "album", title: "앨범", isExternal: true },
+    { id: "contact", title: "오시는 길" },
   ];
 
   const [activeSection, setActiveSection] = useState("home");
@@ -196,109 +194,108 @@ export default function App() {
   };
 
   return (
-    <Router basename={process.env.PUBLIC_URL}>
-      <div className="bg-white font-sans text-gray-900">
-        {/* 모든 페이지 이동 시 상단 이동을 보장하는 컴포넌트 */}
-        <ScrollToTop />
-        <ScrollToHashElement />
-        <Header
-          sections={sections}
-          activeSection={activeSection}
-          scrollToSection={scrollToSection}
+    <div className="min-h-screen flex flex-col font-sans text-gray-900 bg-gray-50">
+      {/* 모든 페이지 이동 시 상단 이동을 보장하는 컴포넌트 */}
+      <ScrollToTop />
+      <ScrollToHashElement />
+      <Header
+        sections={sections}
+        activeSection={activeSection}
+        scrollToSection={scrollToSection}
+      />
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <main className="pt-16">
+              {" "}
+              {/* 헤더 높이만큼 여백 확보 */}
+              <Home mainBgImage={mainBgImage} />
+              <Suspense
+                fallback={<div className="py-20 text-center">로딩 중...</div>}
+              >
+                <About />
+                <Members />
+
+                {/* 구성원 항목 아래 졸업생/앨범 버튼 섹션 */}
+                <section className="py-24 bg-blue-50 border-y border-blue-100">
+                  <div className="container mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-10">
+                    <Link
+                      to="/graduates"
+                      className="group bg-white p-10 rounded-3xl shadow-lg hover:shadow-2xl transition-all transform hover:-translate-y-2 text-center"
+                    >
+                      <h3 className="text-2xl font-bold text-gray-800 mb-4">
+                        졸업생 소식
+                      </h3>
+                      <p className="text-gray-600 mb-6">
+                        연구실의 발자취를 남긴 선배들을 만나보세요.
+                      </p>
+                      <span className="text-blue-600 font-bold">
+                        전체 보기 →
+                      </span>
+                    </Link>
+                    <Link
+                      to="/album"
+                      className="group bg-white p-10 rounded-3xl shadow-lg hover:shadow-2xl transition-all transform hover:-translate-y-2 text-center"
+                    >
+                      <h3 className="text-2xl font-bold text-gray-800 mb-4">
+                        활동 갤러리
+                      </h3>
+                      <p className="text-gray-600 mb-6">
+                        연구실의 생생한 활동 현장을 확인하세요.
+                      </p>
+                      <span className="text-blue-600 font-bold">
+                        앨범 열기 →
+                      </span>
+                    </Link>
+                  </div>
+                </section>
+
+                <Publications publications />
+                {/* 연구 실적 전체 보기 링크 섹션 */}
+                <section className="pb-24 bg-white">
+                  <div className="container mx-auto px-6 text-center">
+                    <Link
+                      to="/publications"
+                      className="inline-flex items-center px-10 py-4 bg-white text-blue-600 font-bold rounded-full border-2 border-blue-600 hover:bg-blue-600 hover:text-white transition-all transform hover:scale-105 shadow-lg"
+                    >
+                      발행물 전체 보기 →
+                    </Link>
+                  </div>
+                </section>
+                <Contact />
+              </Suspense>
+            </main>
+          }
         />
-        <Routes>
-          <Route
-            path="/"
-            element={
-              <main className="pt-16">
-                {" "}
-                {/* 헤더 높이만큼 여백 확보 */}
-                <Home mainBgImage={mainBgImage} />
-                <Suspense
-                  fallback={<div className="py-20 text-center">로딩 중...</div>}
-                >
-                  <About />
-                  <Members />
+        <Route
+          path="/graduates"
+          element={
+            <Suspense fallback={<div>Loading...</div>}>
+              <GraduatesPage />
+            </Suspense>
+          }
+        />
+        <Route
+          path="/album"
+          element={
+            <Suspense fallback={<div>Loading...</div>}>
+              <AlbumPage />
+            </Suspense>
+          }
+        />
+        <Route
+          path="/publications"
+          element={
+            <Suspense fallback={<div className="h-screen flex items-center justify-center">Loading...</div>}>
+              <PublicationsPage />
+            </Suspense>
+          }
+        />
+      </Routes>
+      <Footer />
+    </div>
 
-                  {/* 구성원 항목 아래 졸업생/앨범 버튼 섹션 */}
-                  <section className="py-24 bg-blue-50 border-y border-blue-100">
-                    <div className="container mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-10">
-                      <Link
-                        to="/graduates"
-                        className="group bg-white p-10 rounded-3xl shadow-lg hover:shadow-2xl transition-all transform hover:-translate-y-2 text-center"
-                      >
-                        <h3 className="text-2xl font-bold text-gray-800 mb-4">
-                          졸업생 소식
-                        </h3>
-                        <p className="text-gray-600 mb-6">
-                          연구실의 발자취를 남긴 선배들을 만나보세요.
-                        </p>
-                        <span className="text-blue-600 font-bold">
-                          전체 보기 →
-                        </span>
-                      </Link>
-                      <Link
-                        to="/album"
-                        className="group bg-white p-10 rounded-3xl shadow-lg hover:shadow-2xl transition-all transform hover:-translate-y-2 text-center"
-                      >
-                        <h3 className="text-2xl font-bold text-gray-800 mb-4">
-                          활동 갤러리
-                        </h3>
-                        <p className="text-gray-600 mb-6">
-                          연구실의 생생한 활동 현장을 확인하세요.
-                        </p>
-                        <span className="text-blue-600 font-bold">
-                          앨범 열기 →
-                        </span>
-                      </Link>
-                    </div>
-                  </section>
-
-                  <Publications publications/>
-                  {/* 연구 실적 전체 보기 링크 섹션 */}
-                  <section className="pb-24 bg-white">
-                    <div className="container mx-auto px-6 text-center">
-                      <Link
-                        to="/publications"
-                        className="inline-flex items-center px-10 py-4 bg-white text-blue-600 font-bold rounded-full border-2 border-blue-600 hover:bg-blue-600 hover:text-white transition-all transform hover:scale-105 shadow-lg"
-                      >
-                        발행물 전체 보기 →
-                      </Link>
-                    </div>
-                  </section>
-                  <Contact />
-                </Suspense>
-              </main>
-            }
-          />
-          <Route
-            path="/graduates"
-            element={
-              <Suspense fallback={<div>Loading...</div>}>
-                <GraduatesPage />
-              </Suspense>
-            }
-          />
-          <Route
-            path="/album"
-            element={
-              <Suspense fallback={<div>Loading...</div>}>
-                <AlbumPage />
-              </Suspense>
-            }
-          />
-          <Route
-            path="/publications"
-            element={
-              <Suspense fallback={<div className="h-screen flex items-center justify-center">Loading...</div>}>
-                <PublicationsPage />
-              </Suspense>
-            }
-          />
-        </Routes>
-        <Footer />
-      </div>
-    </Router>
   );
 }
 
