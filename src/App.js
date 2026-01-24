@@ -242,11 +242,11 @@ export default function App() {
                         활동 갤러리
                       </h3>
                       <p className="text-gray-600 mb-6">
-                        연구실의 생생한 활동 현장을 확인하세요.
+                        연구실의 생생한 활동 현장을 확인하세요. <br />(아직 준비 중입니다.)
                       </p>
                       <span className="text-blue-600 font-bold">
                         앨범 열기 →
-                      </span>
+                      </span>{/*잠시 봉인 ... 🔒*/}
                     </Link>
                   </div>
                 </section>
