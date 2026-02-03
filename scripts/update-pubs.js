@@ -17,7 +17,8 @@ const CONFIG = {
 function getExistingDataCount(filePath) {
     if (!fs.existsSync(filePath)) return 0;
     const content = fs.readFileSync(filePath, 'utf8');
-    const match = content.match(/id:/g);
+    // id: 대신 "id": 패턴을 사용 (JSON 스타일)
+    const match = content.match(/"id"\s*:/g);
     return match ? match.length : 0;
 }
 
@@ -25,12 +26,12 @@ async function updatePublications() {
     let browser;
     try {
         console.log("🚀 [1단계] 가상 브라우저 실행 중...");
-        
+
         browser = await puppeteer.launch({
             headless: "new",
             args: ['--no-sandbox', '--disable-setuid-sandbox']
         });
-        
+
         const page = await browser.newPage();
         await page.setViewport({ width: 1280, height: 800 }); // 화면 크기 설정 (버튼 클릭 위해)
         await page.setUserAgent('Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36');
@@ -67,7 +68,7 @@ async function updatePublications() {
         }
 
         console.log("🖱️ [3단계] 상세보기 버튼 클릭 완료. 데이터 로딩 대기...");
-        
+
         // 데이터가 로딩될 때까지 잠시 대기 (7초)
         // 네트워크 요청이 발생하므로 넉넉히 기다림
         await new Promise(r => setTimeout(r, 7000));
@@ -99,6 +100,7 @@ async function updatePublications() {
         for (const fileCfg of CONFIG.files) {
             const filePath = path.join(CONFIG.dataPath, fileCfg.name);
             const existingCount = getExistingDataCount(filePath);
+            console.log(`🔄 [${fileCfg.name}] 기존 데이터 건수: ${existingCount}`);
             const newPubs = [];
 
             let targetBox = null;
@@ -140,7 +142,7 @@ async function updatePublications() {
                             type: fileCfg.type,
                             title: title,
                             authors: authors,
-                            venue: venue
+                            venue: venue,
                         });
                     }
                 });
