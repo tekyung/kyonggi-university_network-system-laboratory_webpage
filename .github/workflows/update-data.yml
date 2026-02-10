@@ -2,7 +2,7 @@ name: Publications Auto Update & Deploy
 # 설명: 매주 월요일 09시에 연구실적 데이터를 자동 갱신하고 GitHub Pages에 재배포합니다.
 on:
   schedule:
-    - cron: "30 10 * * 1" # 매주 월요일 10:30 (KST)
+    - cron: "00 00 * * 1" # 한국 시간은 +9시간, 매주 월요일 9:00 (KST)
   workflow_dispatch: # 수동 실행 버튼
 
 permissions:

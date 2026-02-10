@@ -9,17 +9,18 @@ const Contact = () => (
         <div className="text-lg">
           <p className="mb-4 flex items-start">
             <strong className="w-24 flex-shrink-0 text-gray-800">주소</strong>
-            <span className="flex-1 whitespace-nowrap">{labInfo.contact.address}</span>
+            <span className="flex-1 whitespace-nowrap">{labInfo.address}</span>
           </p>
           <p className="mb-4">
             <strong className="w-24 inline-block text-gray-800">이메일</strong>
-            <a href={`mailto:${labInfo.contact.email}`} className="text-blue-600 hover:underline">
-              {labInfo.contact.email}
+            {/* gmail 링크로 이메일 주소 연결 */}
+            <a href={`gmail:${labInfo.email}`} className="text-blue-600 hover:underline">
+              {labInfo.email}
             </a>
           </p>
           <p className="mb-4">
             <strong className="w-24 inline-block text-gray-800">연락처</strong>
-            <span>{labInfo.contact.phone}</span>
+            <span>{labInfo.phone}</span>
           </p>
         </div>
         <div className="md:pl-24">

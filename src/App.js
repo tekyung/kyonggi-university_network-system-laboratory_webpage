@@ -15,8 +15,8 @@ const Members = lazy(() => import("./components/Members/Members"));
 const Publications = lazy(() => import("./components/Publications/Publications"));
 const Contact = lazy(() => import("./components/Contact/Contact"));
 const GraduatesPage = lazy(() => import("./pages/GraduatesPage"));
-const AlbumPage = lazy(() => import("./pages/AlbumPage"));
-const PublicationsPage = lazy(() => import("./pages/PublicationsPage"));
+// const AlbumPage = lazy(() => import("./pages/AlbumPage"));
+const PublicationsPage = lazy(() => import("./pages/PublicationsPage copy"));
 
 // 이미지 경로 설정
 const swLogo = (process.env.PUBLIC_URL + "/assets/SW_logo.png"); // SW중심대학 로고
@@ -53,13 +53,17 @@ const ScrollToTop = () => {
 const Header = ({ sections, activeSection, scrollToSection }) => {
   const location = useLocation();
   const isMainPage = location.pathname === "/";
+  // 헤더를 숨길 경로들을 정의 (독립적인 헤더를 가진 페이지들)
+  const hiddenPaths = ["/publications", "/graduates", "/album"];
+  // 현재 경로가 hiddenPaths에 포함되어 있으면 헤더를 렌더링하지 않음 (null 반환)
+  //if (hiddenPaths.includes(location.pathname)) return null;
 
   return (
     // z-50과 w-full을 추가하여 최상단에 고정되고 전체 너비를 차지하도록 설정
     <header className="fixed top-0 left-0 w-full bg-white/90 backdrop-blur-md z-50 shadow-md">
       <nav className="container mx-auto px-6 py-4 flex justify-between items-center">
         {/* 좌측 로고 영역 */}
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-2">
           <Link
             to="/"
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
@@ -68,11 +72,12 @@ const Header = ({ sections, activeSection, scrollToSection }) => {
             <img src={logoImage} alt="로고" className="h-10" />
           </Link>
           <div className="h-6 w-px bg-gray-300 mx-1"></div>
+          {/* SW중심대학 로고 링크 봉인}
           <a
             href="https://swuniv.kyonggi.ac.kr/index" // SW중심대학 공식 웹사이트 링크
             target="_blank"
             rel="noopener noreferrer"
-          >
+            >
             <div className="bg-blue-900 p-1.5 rounded-md flex items-center justify-center">
               <img
                 src={swLogo}
@@ -81,6 +86,7 @@ const Header = ({ sections, activeSection, scrollToSection }) => {
               />
             </div>
           </a>
+          {SW중심대학 로고 링크 봉인 끝 */}
         </div>
 
         {/* 우측 메뉴 영역 */}
@@ -143,7 +149,7 @@ const Footer = () => (
   <footer className="bg-gray-800 text-white py-8">
     <div className="container mx-auto px-6 text-center text-gray-400">
       <p>
-        &copy; {new Date().getFullYear()} {labInfo.name}. All Rights Reserved.
+        &copy; {new Date().getFullYear()} KGU {labInfo.name}. All Rights Reserved.
       </p>
     </div>
   </footer>
@@ -166,7 +172,7 @@ export default function App() {
         { id: "publications", title: "연구 전체 목록", isExternal: true },
       ]
     },
-    { id: "album", title: "앨범", isExternal: true },
+    //{ id: "album", title: "앨범", isExternal: true },
     { id: "contact", title: "오시는 길" },
   ];
 
@@ -218,14 +224,24 @@ export default function App() {
                 <Members />
 
                 {/* 구성원 항목 아래 졸업생/앨범 버튼 섹션 */}
-                <section className="py-24 bg-blue-50 border-y border-blue-100">
+                <section className="pb-24 bg-white">
+                  {/* 졸업생 전체 보기 링크 섹션/}
+                  <div className="container mx-auto px-6 text-center">
+                    <Link
+                      to="/graduates"
+                      className="inline-flex items-center px-10 py-4 bg-white text-blue-600 font-bold rounded-full border-2 border-blue-600 hover:bg-blue-600 hover:text-white transition-all transform hover:scale-105 shadow-lg"
+                    >
+                      졸업생 전체 보기 →
+                    </Link>
+                  </div>
+                  <section className="py-24 bg-blue-50 border-y border-blue-100">
                   <div className="container mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-10">
                     <Link
                       to="/graduates"
                       className="group bg-white p-10 rounded-3xl shadow-lg hover:shadow-2xl transition-all transform hover:-translate-y-2 text-center"
                     >
                       <h3 className="text-2xl font-bold text-gray-800 mb-4">
-                        졸업생 소식
+                        졸업생 명단
                       </h3>
                       <p className="text-gray-600 mb-6">
                         연구실의 발자취를 남긴 선배들을 만나보세요.
@@ -234,21 +250,23 @@ export default function App() {
                         전체 보기 →
                       </span>
                     </Link>
+                    {/* 앨범 페이지 봉인 ... 🔒}
                     <Link
                       to="/album"
                       className="group bg-white p-10 rounded-3xl shadow-lg hover:shadow-2xl transition-all transform hover:-translate-y-2 text-center"
-                    >
+                      >
                       <h3 className="text-2xl font-bold text-gray-800 mb-4">
                         활동 갤러리
                       </h3>
                       <p className="text-gray-600 mb-6">
-                        연구실의 생생한 활동 현장을 확인하세요. <br />(아직 준비 중입니다.)
+                        연구실의 생생한 활동 현장을 확인하세요.
                       </p>
                       <span className="text-blue-600 font-bold">
                         앨범 열기 →
-                      </span>{/*잠시 봉인 ... 🔒*/}
+                      </span>
                     </Link>
                   </div>
+                  { 잠시 봉인 ... */}
                 </section>
 
                 <Publications publications />
@@ -276,6 +294,7 @@ export default function App() {
             </Suspense>
           }
         />
+        {/* 앨범 페이지 봉인 ... 🔒}
         <Route
           path="/album"
           element={
@@ -284,6 +303,7 @@ export default function App() {
             </Suspense>
           }
         />
+        {앨범 페이지 봉인 끝 */}
         <Route
           path="/publications"
           element={

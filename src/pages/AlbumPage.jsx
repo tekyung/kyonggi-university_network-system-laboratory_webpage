@@ -74,7 +74,7 @@ const AlbumPage = () => {
             <p className="text-gray-500 text-lg">연구실의 도전과 열정, 그리고 소중한 순간들을 기록합니다.</p>
           </div>
           <div className="hidden md:block">
-            <span className="text-6xl font-black text-gray-100 uppercase select-none">Gallery</span>
+            <span className="text-6xl font-black text-gray-300 uppercase select-none">Gallery</span>
           </div>
         </div>
 

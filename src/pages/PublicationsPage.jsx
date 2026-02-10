@@ -11,7 +11,14 @@ const PublicationsPage = () => {
         ...dm_pubData.publications,
         ...book_pubData.publications
     ];
-    const filteredPubs = allPubs.filter(p => filter === 'All' || p.type === filter);
+    // 한글 라벨과 실제 type 값을 매핑
+    const filterMap = {
+        'All': 'All',
+        '국제 학회': 'International Conference',
+        '국내 저널': 'Domestic Journal',
+        '저서': 'Book',
+    };
+    const filteredPubs = allPubs.filter(p => filter === 'All' || p.type === filterMap[filter]);
     const years = [...new Set(filteredPubs.map(p => p.year))].sort((a, b) => b - a);
 
     return (
@@ -19,11 +26,12 @@ const PublicationsPage = () => {
             <div className="container mx-auto px-6">
                 <div className="max-w-4xl mx-auto text-center mb-16">
                     <Link to="/" className="text-blue-600 font-bold mb-4 inline-block">← 메인으로 돌아가기</Link>
-                    <h2 className="text-5xl font-black text-gray-900 mb-6">Publications</h2>
+                    <h2 className="text-5xl font-black text-gray-900 mb-6"><br />논문 및 저서</h2>
+                    <h2 className="text-4xl md:text-1 font-italic text-blue-600 mb-6">Publications</h2>
 
                     {/* 분류 필터 */}
                     <div className="flex justify-center gap-4 mt-8">
-                        {['All', 'International Conference', 'Domestic Journal', 'Book'].map(t => (
+                        {['All', '국제 학회', '국내 저널', '저서'].map(t => (
                             <button
                                 key={t}
                                 onClick={() => setFilter(t)}
